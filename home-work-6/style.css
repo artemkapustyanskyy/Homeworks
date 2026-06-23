@@ -1,0 +1,48 @@
+.styled-table {
+  border: 3px solid #000;
+  width: 1000px;
+  height: 800px;
+  /* border-collapse: collapse; */
+  border-spacing: 0px;
+}
+
+td {
+  border: 5px solid #000;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+.yacheyka_left {
+  width: 50px;
+}
+
+.yacheyka_right {
+  width: 15px;
+}
+
+.big_yacheyka {
+  height: 400px;
+  border: 10px solid #000;
+  background-color: #ff0000;
+}
+
+.black_yacheyka {
+  background-color: #000;
+  border: 10px solid #000;
+}
+
+.blue_yacheyka {
+  background-color: #0000ff;
+  border: 10px solid #000;
+}
+
+.yellow_yacheyka {
+  background-color: #ffff00;
+  border: 10px solid #000;
+}
+
+.red_yacheyka {
+  background-color: #ff0000;
+  border: 10px solid #000;
+}
