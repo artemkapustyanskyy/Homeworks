@@ -4,7 +4,7 @@
 Внутри — обычный цикл по списку, без рекурсии. 
 Тренирует return нескольких значений и распаковку результата при вызове.
 */
-/*
+
 function stats(a, b, c) {
   let min = Math.min(a, b, c);
   let max = Math.max(a, b, c);
@@ -19,7 +19,7 @@ function stats(a, b, c) {
 }
 
 console.log(stats(1, 2, 3));
-*/
+
 /*
 2. Функция с параметром по умолчанию и произвольным числом аргументов
 Написать функцию total_price(price, discount=0, *extra_fees), которая считает итоговую цену с необязательной скидкой (в %) и произвольным числом дополнительных сборов. 
@@ -29,7 +29,6 @@ console.log(stats(1, 2, 3));
 let price = +prompt("Enter the product price:");
 let discount = +prompt("Enter the discount in %:");
 let extra_fees = +prompt("Enter the additional fees:");
-
 function total_price(price, discount = 0, extra_fees) {
   if (discount > 0 && extra_fees > 0) {
     return price - (price * discount) / 100 + extra_fees;
@@ -49,7 +48,6 @@ console.log("Total price:", total_price(price, discount, extra_fees));
 Внутри — обычный цикл (for/while) с проверкой делителей до √n и return False при первом найденном делителе. 
 Тренирует ранний return и работу с булевым результатом.
 */
-/*
 function is_prime(number) {
   for (let i = 2; i <= Math.sqrt(number); i++) {
     if (number % i === 0) {
@@ -60,7 +58,6 @@ function is_prime(number) {
 }
 console.log(is_prime(2));
 console.log(is_prime(6));
-*/
 /*
 function is_prime(number) {
   for (let i = 2; i <= number; i++) {
@@ -153,92 +150,3 @@ console.log(pow(3, 3));
 console.log(pow(1, 100));
 
 */
-
-// Область видимости переменных, замыкание
-
-// №1
-
-let name = "John";
-
-function sayHi() {
-  alert("Hi, " + name);
-}
-
-name = "Pete";
-
-sayHi(); // что будет показано: "John" или "Pete"?
-// Ответ: будет Pete так как переменная была перезаписана после вызова фукции
-
-
-// №2
-
-function makeWorker() {
-  let name = "Pete";
-
-  return function() {
-    alert(name);
-  };
-}
-
-let name = "John";
-
-// создаём функцию
-let work = makeWorker();
-
-// вызываем её
-work(); // что будет показано?
-// Ответ: Будет Pete так как переменная в функцие и вне ей разные и не связаны между собой, переменная которая внутри функции никак не перезапишится
-
-
-// №3
-
-function makeCounter() {
-  let count = 0;
-
-  return function() {
-    return count++;
-  };
-}
-
-let counter = makeCounter();
-let counter2 = makeCounter();
-
-alert( counter() ); // 0
-alert( counter() ); // 1
-
-alert( counter2() ); // ?
-alert( counter2() ); // ?
-// Ответ: будет 0 и 1 так как создается два счетчика и у каждого фунция работает как сначала 
-
-
-// №4
-
-let phrase = "Hello";
-
-if (true) {
-  let user = "John";
-
-  function sayHi() {
-    alert(`${phrase}, ${user}`);
-  }
-}
-
-sayHi();
-
-// Вопрос: Какой будет результат у вызова на последней строке?
-// Ответ: будет ошибка так как кансоль не найдет такую функция так как она находится в блоке if и не видна вне его 
-
-
-// №5
-
-// Напишите функцию sum, которая работает таким образом: sum(a)(b) = a+b.
-
-function sum(a) {
-  return function(b) {
-    return a + b;
-  };
-}
-
-console.log(sum(1)(2)); 
-console.log(sum(5)(-1)); 
-
